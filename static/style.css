@@ -1,0 +1,33 @@
+body {
+  background:#0f172a;
+  color:white;
+  font-family:Segoe UI;
+}
+
+.container {
+  max-width:900px;
+  margin:30px auto;
+  padding:20px;
+  background:#020617;
+  border-radius:10px;
+}
+
+textarea {
+  width:100%;
+  background:#020617;
+  color:white;
+  border-radius:6px;
+  border:1px solid #1f2937;
+  padding:10px;
+}
+
+button {
+  width:100%;
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  background:linear-gradient(90deg,#22c55e,#0ea5e9);
+  color:black;
+  font-size:16px;
+  cursor:pointer;
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AI Resume Screening Tool</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div class="container">
+  <h1>AI Resume Screening Tool</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    <h2>Job Description</h2>
+    <textarea name="job_description" rows="8">{{ jd_text }}</textarea>
+
+    <h2>Resume</h2>
+    <textarea name="resume_text" rows="8">{{ resume_text }}</textarea>
+
+    <p>Or upload .txt file</p>
+    <input type="file" name="resume_file" accept=".txt" />
+
+    <button type="submit">Analyze Fit</button>
+  </form>
+
+  {% if result is not none %}
+  <div class="result">
+    <h2>Match Score: {{ result }}%</h2>
+
+    <h3>Strengths</h3>
+    <ul>
+      {% for r, j, s in strengths %}
+        <li><strong>{{ r }}</strong><br/>Related JD: {{ j }} ({{ "%.2f"|format(s*100) }}%)</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Gaps</h3>
+    <ul>
+      {% for j, s in gaps %}
+        <li>{{ j }} ({{ "%.2f"|format(s*100) }}%)</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+</body>
+</html>
