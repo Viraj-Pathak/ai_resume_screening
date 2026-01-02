@@ -1,1 +1,6 @@
+flask
+sentence-transformers
+transformers
+torch
+scikit-learn
 gunicorn==21.2.0
